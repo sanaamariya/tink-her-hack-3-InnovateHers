@@ -1,14 +1,14 @@
-# [Project Name] 🎯
+# SpotSaver 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: InnovateHers
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: Aysha Nabeel       - Rajagiri School of Engineering and Technology
+- Member 2: Nikitha Tom        - Rajagiri School of Engineering and Technology
+- Member 3: Sanaa Mariya Nisan - Rajagiri School of Engineering and Technology
 
 ### Hosted Project Link
 [mention your project hosted project link here]
