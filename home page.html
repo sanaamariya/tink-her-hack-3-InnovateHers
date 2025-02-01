@@ -45,6 +45,24 @@
             background-color: #555;
         }
 
+        /* Logout button in the sidebar */
+        .logout-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+
         /* Main content */
         .main-content {
             flex: 1;
@@ -53,11 +71,18 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            text-align: center;
         }
 
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+        }
+
+        .login-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         /* Seats container */
@@ -142,42 +167,26 @@
             transform: scale(1.1);
         }
 
-        .reserve-btn {
+        .reserve-btn, .check-in-btn, .check-out-btn {
             background-color: rgb(247, 188, 29);
             color: black;
         }
 
-        .check-in-btn {
-            background-color: rgb(247, 188, 29);
-            color: black;
-        }
-
-        .check-out-btn {
-            background-color: rgb(247, 188, 29);
-            color: black;
-        }
     </style>
 </head>
 <body>
-    <p>You have successfully logged in.</p>
-    <button class="btnl" onclick="logout()">Logout</button>
-
-    <script>
-        function logout() {
-            alert("Logging out...");
-            window.location.href = "login.html";
-        }
-    </script>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <h2>Menu</h2>
         <a href="#">About</a>
         <a href="#">Contact</a>
+        <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
+        <p class="login-message">You have successfully logged in.</p>
         <h1>Library Seat Reservation</h1>
 
         <!-- Seat Layout -->
@@ -208,5 +217,13 @@
         </div>
     </div>
 
+    <script>
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "signin.html";
+        }
+    </script>
+
 </body>
 </html>
+
