@@ -191,16 +191,16 @@
 
         <!-- Seat Layout -->
         <div class="seats-container">
-            <div class="seat available">1</div>
-            <div class="seat reserved">2</div>
-            <div class="seat available">3</div>
-            <div class="seat reserved">4</div>
-            <div class="seat available">5</div>
-            <div class="seat available">6</div>
-            <div class="seat reserved">7</div>
-            <div class="seat available">8</div>
-            <div class="seat reserved">9</div>
-            <div class="seat available">10</div>
+            <div class="seat available" data-seat-id="1">1</div>
+            <div class="seat available" data-seat-id="2">2</div>
+            <div class="seat available" data-seat-id="3">3</div>
+            <div class="seat available" data-seat-id="4">4</div>
+            <div class="seat available" data-seat-id="5">5</div>
+            <div class="seat available" data-seat-id="6">6</div>
+            <div class="seat available" data-seat-id="7">7</div>
+            <div class="seat available" data-seat-id="8">8</div>
+            <div class="seat available" data-seat-id="9">9</div>
+            <div class="seat available" data-seat-id="10">10</div>
         </div>
 
         <!-- Legend -->
@@ -211,13 +211,60 @@
 
         <!-- Buttons -->
         <div class="buttons">
-            <button class="btn reserve-btn">Reserve Seat</button>
+            <button class="btn reserve-btn" onclick="reserveSeat()">Reserve Seat</button>
             <button class="btn check-in-btn">Check-in</button>
-            <button class="btn check-out-btn">Check-out</button>
+            <button class="btn check-out-btn" onclick="checkOut()">Check-out</button>
         </div>
     </div>
 
     <script>
+        let selectedSeat = null;
+
+        // Handle seat selection for available seats
+        document.querySelectorAll('.seat.available').forEach(seat => {
+            seat.addEventListener('click', function() {
+                if (selectedSeat) {
+                    selectedSeat.classList.remove('selected');
+                }
+                selectedSeat = this;
+                selectedSeat.classList.add('selected');
+            });
+        });
+
+        // Reserve the selected seat
+        function reserveSeat() {
+            if (selectedSeat) {
+                if (selectedSeat.classList.contains('reserved')) {
+                    alert("This seat is already reserved!");
+                } else {
+                    // Change the seat to reserved
+                    selectedSeat.classList.remove('available');
+                    selectedSeat.classList.add('reserved');
+                    alert("Seat reserved!");
+                    selectedSeat = null;
+                }
+            } else {
+                alert("Please select a seat first!");
+            }
+        }
+
+        // Check-out (unreserve) the selected seat
+        function checkOut() {
+            if (selectedSeat) {
+                if (selectedSeat.classList.contains('reserved')) {
+                    // Change the seat to available
+                    selectedSeat.classList.remove('reserved');
+                    selectedSeat.classList.add('available');
+                    alert("Seat unreserved!");
+                    selectedSeat = null;
+                } else {
+                    alert("This seat was not reserved!");
+                }
+            } else {
+                alert("Please select a seat first!");
+            }
+        }
+
         function logout() {
             alert("Logging out...");
             window.location.href = "signin.html";
@@ -226,4 +273,5 @@
 
 </body>
 </html>
+
 
