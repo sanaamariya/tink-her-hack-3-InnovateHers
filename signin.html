@@ -5,68 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
     <style>
-    body {
-        font-family: Rockwell, Trinite, sans-serif;
-        background-image: url("https://tse3.mm.bing.net/th?id=OIP.ks8kKSwNXOp8WIR-jqsjRAHaE7&pid=Api&P=0&h=180");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers content horizontally */
-        justify-content: center; /* Centers content vertically */
-        min-height: 100vh; /* Ensures full height */
-        text-align: center; /* Centers text inside elements */
-    }
+        body {
+            font-family: Rockwell, Trinite, sans-serif;
+            background-image: url("https://tse3.mm.bing.net/th?id=OIP.ks8kKSwNXOp8WIR-jqsjRAHaE7&pid=Api&P=0&h=180");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content horizontally */
+            justify-content: center; /* Centers content vertically */
+            min-height: 100vh; /* Ensures full height */
+            text-align: center; /* Centers text inside elements */
+        }
 
-    form {
-        background: rgba(255, 255, 255, 0.85);
-        padding: 50px;
-        border-radius: 15px;
-        width: 40%;
-        max-width: 500px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers all content */
-    }
+        form {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 50px;
+            border-radius: 15px;
+            width: 40%;
+            max-width: 500px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers all content */
+        }
 
-    h1 {
-        font-size: 3rem;
-    }
+        h1 {
+            font-size: 3rem;
+        }
 
-    input {
-        width: 100%;
-        padding: 15px;
-        margin: 10px 0;
-        font-size: 1.2rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .error {
+        input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .error {
             color: red;
             font-size: 0.9rem;
             display: none;
         }
 
-    .btn {
-        font-size: 1.5rem; /* Bigger font size for the button */
-        padding: 15px 30px; /* Increased padding */
-        background-color: yellow;
-        color: black;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
+        .btn {
+            font-size: 1.5rem; /* Bigger font size for the button */
+            padding: 15px 30px; /* Increased padding */
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
 
-    .btn:hover {
-        background-color: #ffdb4d;
-        transform: scale(1.1);
-    }
+        .btn:hover {
+            background-color: #ffdb4d;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -80,6 +81,34 @@
         <p>Already have an account? <a href="login.html">Login</a></p>
     </form>
 
-    <script src="user.js"></script>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const usernameError = document.getElementById("usernameError");
+
+            // Simulating existing users (This would normally come from a database)
+            let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if username already exists
+            const userExists = existingUsers.some(user => user.username === username);
+
+            if (userExists) {
+                usernameError.style.display = "block"; // Show error message
+            } else {
+                usernameError.style.display = "none"; // Hide error
+
+                // Save new user to local storage
+                existingUsers.push({ username, email, password });
+                localStorage.setItem("users", JSON.stringify(existingUsers));
+
+                alert("Sign up successful! Redirecting to login...");
+                window.location.href = "login.html"; // Redirect to login page
+            }
+        });
+    </script>
 </body>
 </html>
