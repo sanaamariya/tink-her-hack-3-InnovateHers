@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Seat Reservation</title>
+    <style>
+        body {
+            font-family: Rockwell, Trinite, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+            margin: 5px 0;
+            background-color: #444;
+            width: 100%;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Seats container */
+        .seats-container {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Seat styles */
+        .seat {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .seat:hover {
+            transform: scale(1.1);
+        }
+
+        .available {
+            background-color: green;
+            color: white;
+        }
+
+        .reserved {
+            background-color: red;
+            color: white;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .legend div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .green-box {
+            background-color: green;
+        }
+
+        .red-box {
+            background-color: red;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .reserve-btn {
+            background-color: rgb(247, 188, 29);
+            color: black;
+        }
+
+        .check-in-btn {
+            background-color: rgb(247, 188, 29);
+            color: black;
+        }
+
+        .check-out-btn {
+            background-color: rgb(247, 188, 29);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <p>You have successfully logged in.</p>
+    <button class="btnl" onclick="logout()">Logout</button>
+
+    <script>
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Library Seat Reservation</h1>
+
+        <!-- Seat Layout -->
+        <div class="seats-container">
+            <div class="seat available">1</div>
+            <div class="seat reserved">2</div>
+            <div class="seat available">3</div>
+            <div class="seat reserved">4</div>
+            <div class="seat available">5</div>
+            <div class="seat available">6</div>
+            <div class="seat reserved">7</div>
+            <div class="seat available">8</div>
+            <div class="seat reserved">9</div>
+            <div class="seat available">10</div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div><div class="legend-box green-box"></div> Available</div>
+            <div><div class="legend-box red-box"></div> Reserved</div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button class="btn reserve-btn">Reserve Seat</button>
+            <button class="btn check-in-btn">Check-in</button>
+            <button class="btn check-out-btn">Check-out</button>
+        </div>
+    </div>
+
+</body>
+</html>
