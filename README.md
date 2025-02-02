@@ -11,7 +11,8 @@
 - Member 3: Sanaa Mariya Nisan - Rajagiri School of Engineering and Technology
 
 ### Hosted Project Link
-https://sanaamariya.github.io/InnovateHers/
+https://spotsaver-seven.vercel.app/
+https://spotsaver-sanaa-mariya-nisans-projects.vercel.app/
 
 ### Project Description
 This project was designed to reserve seats at a library, to avoid rush and ensure maximum efficiency at the library during peak hours.
